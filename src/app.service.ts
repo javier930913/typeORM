@@ -16,7 +16,7 @@ export class AppService {
     const name = this.configService.database.name;
     return `Hello World! ${apiKey} ${name}`;
   }
-  getTasks() { // 👈 new method
+  getTasks() { // new method
     return new Promise((resolve, reject) => {
       this.clientPg.query('SELECT * FROM tasks', (err, res) => {
         if (err) {
