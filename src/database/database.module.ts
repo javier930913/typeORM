@@ -37,6 +37,7 @@ client.connect();
           database: dbName,
           synchronize: false,
           autoLoadEntities: true,
+          logging: true,
         };
       },
     })
