@@ -1,7 +1,8 @@
 import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn,
-  UpdateDateColumn, ManyToOne } from 'typeorm';
+  UpdateDateColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
 
   import { Brand } from './brand.entity';
+  import { Category } from './category.entity';
 
 @Entity()
 export class Product {
@@ -37,4 +38,8 @@ export class Product {
 
   @ManyToOne(() => Brand, (brand) => brand.products)
   brand: Brand;
+
+  @ManyToMany(()=>Category, (category)=>category.products)
+  @JoinTable() // Solo debe ir en un lado de la relacion
+  categories: Category[];
 }
